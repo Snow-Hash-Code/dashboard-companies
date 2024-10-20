@@ -1,6 +1,7 @@
 import {ClerkProvider} from '@clerk/nextjs'
 import { Noto_Sans_Display } from 'next/font/google'
 import { ThemeProvider } from '@/components/theme-provider'
+import { Toaster } from '@/components/ui/toaster'
 
 import './globals.css'
 
@@ -22,6 +23,7 @@ export default function RootLayout({
             disableTransitionOnChange
           >
             {children}
+            <Toaster />
           </ThemeProvider>
         </body>
       </html>
