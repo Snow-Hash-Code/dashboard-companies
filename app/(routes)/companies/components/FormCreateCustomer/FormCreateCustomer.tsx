@@ -60,8 +60,8 @@ export function FormCreateCustomer(props: FormCreateCustomerProps) {
         title: "Company created!",
         description: "The company has been created successfully"
       })
-      router.refresh()
       setOpenModalCreate(false)
+      router.refresh()
     } catch (error) {
       toast({
         title: `Something went wrong: ${error}`,
@@ -189,7 +189,7 @@ export function FormCreateCustomer(props: FormCreateCustomerProps) {
             )}
           />
         </div>
-        <Button type="submit" disabled={!isValid}>Submit</Button>
+        <Button type="submit" disabled={!isValid && !photoUploaded}>Submit</Button>
       </form>
     </Form>
   )
