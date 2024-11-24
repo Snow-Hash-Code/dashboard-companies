@@ -2,6 +2,8 @@ import Image from "next/image"
 import { CompanyInformationProps } from "./CompanyInformation.types"
 import { User } from "lucide-react"
 import { CompanyForm } from "../CompanyForm"
+import { NewContact } from "../NewContact"
+import { ListContacts } from "../ListContacts"
 
 export function CompanyInformation(props: CompanyInformationProps) {
   const { company } = props
@@ -21,10 +23,10 @@ export function CompanyInformation(props: CompanyInformationProps) {
           </div>
           <div>
             {/* TODO: New Contact */}
-            <p>New Contact...</p>
+            <NewContact />
           </div>
         </div>
-        <p>List Contacts...</p>
+        <ListContacts company={company} />
       </div>
     </div>
   )

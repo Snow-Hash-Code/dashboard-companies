@@ -3,6 +3,7 @@ import { auth } from "@clerk/nextjs/server"
 import { redirect } from "next/navigation"
 import { Header } from "./components/Header"
 import { CompanyInformation } from "./components/CompanyInformation"
+import { FooterCompany } from "./components/FooterCompany"
 
 
 export default async function CompanyIdPage({ params } : { params: { companyId: string}}) {
@@ -19,13 +20,11 @@ export default async function CompanyIdPage({ params } : { params: { companyId: 
 
   if (!company) return redirect('/')
 
-  console.log(company)
-
   return (
     <div>
       <Header />
       <CompanyInformation company={company} />
-      <p>Footer Company</p>
+      <FooterCompany companyId={company.id} />
     </div>
   )
 }

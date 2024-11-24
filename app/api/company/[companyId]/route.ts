@@ -26,3 +26,24 @@ export async function PATCH(req: Request, { params } : { params: { companyId: st
     return new NextResponse('Internal Error', { status: 500})
   }
 }
+
+export async function DELETE(req: Request, { params }: { params: { companyId: string } }) {
+  try{
+    const { userId } = auth()
+    const { companyId } = params
+
+    if (!userId) return new NextResponse('Unauthorized', { status: 401 })
+
+    const deletedCompany = await prisma.company.delete({
+      where: {
+        id: companyId,
+        userId
+      }
+    })
+
+    return NextResponse.json(deletedCompany)
+  } catch (error) {
+    console.log('[DELETE COMPANY ID]: ', error)
+    return new NextResponse('Internal Error', { status: 500})
+  }
+}

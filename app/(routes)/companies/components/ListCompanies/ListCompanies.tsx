@@ -18,7 +18,6 @@ export async function ListCompanies() {
     }
   })
 
-  console.log(companies)
   return (
     <DataTable columns={columns} data={companies} />
   )
