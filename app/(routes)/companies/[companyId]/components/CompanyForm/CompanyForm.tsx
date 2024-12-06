@@ -41,7 +41,7 @@ export function CompanyForm(props: CompanyFormProps) {
   const onSubmit = async (values: z.infer<typeof formSchema>)  => {
     try {
       await axios.patch(`/api/company/${company.id}`, values)
-      toast({title: 'Company updated!'})
+      toast({title: 'Company updated!', variant: 'default'})
       router.refresh()
     } catch {
       toast({title: 'Something wen wrong!', variant: 'destructive'})
@@ -141,7 +141,7 @@ export function CompanyForm(props: CompanyFormProps) {
                         form.setValue('profileImage', res?.[0].url)
                         setPhotoUploaded(true)
                       }} onUploadError={() => {
-                        toast({title: 'Error uploading photo'})
+                        toast({title: 'Error uploading photo', variant: 'destructive'})
                       }}/>
                     )}
                   </div>

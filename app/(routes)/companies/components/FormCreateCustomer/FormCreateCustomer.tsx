@@ -58,7 +58,8 @@ export function FormCreateCustomer(props: FormCreateCustomerProps) {
       axios.post('/api/company', values)
       toast({
         title: "Company created!",
-        description: "The company has been created successfully"
+        description: "The company has been created successfully",
+        variant: 'default'
       })
       setOpenModalCreate(false)
       router.refresh()
@@ -176,7 +177,8 @@ export function FormCreateCustomer(props: FormCreateCustomerProps) {
                         }}
                         onUploadError={() =>{
                           toast({
-                            title: "Error uploading photo"
+                            title: "Error uploading photo",
+                            variant: "destructive"
                           })
                         }}
                       />
